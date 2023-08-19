@@ -241,7 +241,7 @@ public class GPUImageRenderer implements GLSurfaceView.Renderer, GLTextureView.R
                             Bitmap.Config.ARGB_8888);
                     resizedBitmap.setDensity(bitmap.getDensity());
                     Canvas can = new Canvas(resizedBitmap);
-                    can.drawARGB(0x00, 0x00, 0x00, 0x00);
+                    can.drawARGB(0xFF, 0xFF, 0xFF, 0xFF);
                     can.drawBitmap(bitmap, 0, 0, null);
                     addedPadding = 1;
                 } else {

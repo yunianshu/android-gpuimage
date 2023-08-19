@@ -528,18 +528,9 @@ public class GPUImage {
                         new String[]{
                                 file.toString()
                         }, null,
-                        new MediaScannerConnection.OnScanCompletedListener() {
-                            @Override
-                            public void onScanCompleted(final String path, final Uri uri) {
-                                if (listener != null) {
-                                    handler.post(new Runnable() {
-
-                                        @Override
-                                        public void run() {
-                                            listener.onPictureSaved(uri);
-                                        }
-                                    });
-                                }
+                        (path1, uri) -> {
+                            if (listener != null) {
+                                handler.post(() -> listener.onPictureSaved(uri));
                             }
                         });
             } catch (FileNotFoundException e) {
